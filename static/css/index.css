@@ -1,0 +1,7 @@
+body {
+    background: url('https://i.postimg.cc/BbynVs6h/trailer-beergarden.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Lato';
+}
