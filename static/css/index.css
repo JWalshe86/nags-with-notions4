@@ -2,20 +2,10 @@
     margin: 0;
 	}
 
-body {
-    /* background: url('hero-image-horsebox.jpg') no-repeat center center fixed; */
-    /* background-size: cover; */
-    /* color: #555; */
-    /* font-family: 'Lato'; */
-    /* height: 100%; */
-}
-
-
 .navbar {
   background-color: #f4c2c3;
 }
 .wrapper {
-    min-height: 100%;
     height: auto !important;
     height: 100%;
     margin: 0 auto -142px; /* the bottom margin is the negative value of the footer's height */
