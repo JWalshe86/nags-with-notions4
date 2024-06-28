@@ -12,3 +12,9 @@
      background-position: left;   
    }
 }
+
+.container {
+
+	background-color: #000000ad;
+	border-radius: 1rem;
+}
