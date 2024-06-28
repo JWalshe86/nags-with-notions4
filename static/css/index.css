@@ -10,6 +10,74 @@
 .navbar-default {
   background-color: #f4c2c3;
 }
+
+
+/* Nav Menu */
+
+
+main {
+  display: grid;
+  gap: 1.5rem;
+  font: 0.75rem/1.6 helvetica,sans-serif;
+
+  & h1 {
+    font-family: 'arial-black';
+  }
+}
+
+.nav-menu {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 0.7rem;
+
+  & button {
+    border: none;
+    background-color: transparent;
+    font-size: 0.75rem;
+    cursor: pointer;
+    color: rgba(0,0,0,0.7);
+  }
+}
+
+.active {
+  font-weight: 900;
+  color: black;
+}
+
+.menu {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+  gap: 1.5rem;
+
+  & li {
+    & img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      border-radius: 0.25rem;
+    }
+
+    & h2 {
+      color: rgba(0,0,0,0.7);
+      font-size: 0.9rem;
+      margin: 0.25rem 0;
+    }
+
+    & p {
+      color: rgba(0,0,0,0.35);
+    }
+  }
+}
+
+.hide { display: none; }
+
+::view-transition-group(*) { animation-duration: 0.5s; }
+
+/* end nav-menu */
+
 .wrapper {
     height: auto !important;
     height: 100%;
