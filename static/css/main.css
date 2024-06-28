@@ -6,3 +6,15 @@
   background-size: cover;
   height: 100vh;
 }
+
+@media (max-width:666px){
+   .jumbotron{
+     background-position: left;   
+   }
+}
+
+.container {
+
+	background-color: #000000ad;
+	border-radius: 1rem;
+}
