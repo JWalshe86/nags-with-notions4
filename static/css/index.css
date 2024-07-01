@@ -100,6 +100,7 @@ footer .col-lg-2.mx-auto {
 footer .footer-bottom {
   padding-top: 1vh;
   border-top: 2px solid rgba(255, 255, 255, 0.4);
+  background-color: #f4c2c3;
 }
 footer .footer-bottom.a {
   color: black;
