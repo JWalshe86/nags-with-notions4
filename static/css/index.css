@@ -92,6 +92,7 @@ footer, .push {
 }
 footer {
   background-color: #f4c2c3;
+  border-top: solid;
 }
 footer .footer-top div > div > div:nth-child(2) > h6 {
   padding-left: 3rem;
