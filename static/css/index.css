@@ -98,7 +98,6 @@ footer, .push {
 }
 footer {
   background-color: #f4c2c3;
-  border-top: solid;
 }
 footer .footer-top div > div > div:nth-child(2) > h6 {
   padding-left: 3rem;
@@ -142,6 +141,16 @@ footer .col-lg-4__social-links:hover, footer footer .col-lg-4 a:hover {
   color: #f4c2c3;
 }
 
-#footer-container{
-	background-color: unset;
+#footer-container-bottom{
+	background-color: aliceblue !important;
 }
+.footer-bottom{
+	background-color: aliceblue !important;
+}
+
+#footer-bottom{
+	background-color: aliceblue !important;
+
+}
+
+
