@@ -49,6 +49,12 @@ main {
   color: black;
 }
 
+#email-container{
+   background-color: aliceblue;
+   padding: 2rem;
+   margin-bottom: 2rem;
+}
+
 .menu {
   list-style-type: none;
   display: grid;

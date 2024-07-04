@@ -1,22 +1,20 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contact Form</title>
-  </head>
-  <body>
 
-   <form action="https://formsubmit.co/hello@nagswithnotions.com" method="POST">
-     <input type="hidden" name="_subject" value="New email woooo!">
-     <input type="text" name="name" placeholder='Name' required>
-     <input type="hidden" name="_next" value="http://nagswithnotions.ie/templates/thankyou.html">
-     <input type="email" name="email" placeholder='Email Address' required>
-     <button type="submit">Send</button>
-   </form>
+<div data-include-html="templates/head.html"></div>
+<body>
+<div class="wrapper">
+<div data-include-html="templates/main-nav.html"></div>
+    <div class="push"></div>
+</div>
+<div data-include-html="templates/main.html"></div>
+<div data-include-html="templates/email.html"></div>
+<div data-include-html="templates/menu.html"></div>
+<div data-include-html="templates/footer.html"></div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>                                                             <!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src='script.js'>
+</script>
 
-
-  </body>
-</html>
-
+<script>
+includeHTML();
+</script>
