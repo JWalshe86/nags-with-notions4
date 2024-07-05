@@ -1,6 +1,19 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container p-4 my-2 rounded-3">
+    <h1 class="display-4 fw-bold">Sourdough Pizzas</h1>
+    <p class='col lead'>Available for hire. A perfect addition to your special event</p>
+     <button id='btn' class='btn btn-lg' type="button">Book Here</button>
+  </div>
+</div>
 
-<header id='header1' class='p-4 my-2 rounded-3 container'>
-     <h1 class='display-5 fw-bold'>Pizzas</h1>
-      <p class='col lead'>Sourdough pizza from Meaths finest producers. Available for hire. Perfect addition for any event. </p>
-    <button id='btn' class='btn btn-dark btn-lg' type="button">Book Here</button>
-</header>
+<link rel="stylesheet" href="static/css/main.css">
+
+<script>
+$(".jumbotron").css({ height: $(window).height() + "px" });
+
+$(window).on("resize", function() {
+  $(".jumbotron").css({ height: $(window).height() + "px" });
+});
+
+
+</script>
