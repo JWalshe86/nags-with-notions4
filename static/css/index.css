@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
 	}
@@ -53,6 +55,18 @@ main {
    background-color: aliceblue;
    padding: 2rem;
    margin-bottom: 2rem;
+}
+
+header{
+   background-image: url("http://127.0.0.1:8080/media/hero-image-horsebox.jpg");
+   background-size: cover;
+   background-position: center;
+}
+#header1{
+color: white;
+}
+#btn{
+color: black;
 }
 
 .menu {
