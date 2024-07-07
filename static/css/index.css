@@ -8,14 +8,14 @@ body {
 	background-color: #f4c2c3;
 }
 
-/* .navbar{ */
-/*     margin-bottom: 0px; */
-/*     border: 0px; */
-/* } */
+.navbar{
+    margin-bottom: 0px;
+    border: 0px;
+}
 
-/* .navbar-default { */
-/*   background-color: #f4c2c3; */
-/* } */
+.navbar-default {
+  background-color: #f4c2c3;
+}
 
 
 /* Nav Menu */
@@ -31,20 +31,20 @@ main {
   }
 }
 
-/* .nav-menu { */
-/*   display: flex; */
-/*   align-items: start; */
-/*   flex-direction: column; */
-/*   gap: 0.7rem; */
+.nav-menu {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 0.7rem;
 
-/*   & button { */
-/*     border: none; */
-/*     background-color: transparent; */
-/*     font-size: 0.75rem; */
-    /* cursor: pointer; */
-    /* color: rgba(0,0,0,0.7); */
-  /* } */
-/* } */
+  & button {
+    border: none;
+    background-color: transparent;
+    font-size: 0.75rem;
+    cursor: pointer;
+    color: rgba(0,0,0,0.7);
+  }
+}
 
 .active {
   font-weight: 900;
