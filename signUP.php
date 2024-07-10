@@ -6,6 +6,13 @@
 	<title>Sign Up</title>
 </head>
 <body>
+    <?php
+        require('./connection.php');
+        if (isset($_POST['signUP_button'])) {
+	   echo 'It is working!';
+	}
+
+     ?>
 	<div class="form">
         <div class="title">
             <p>Sign UP form</p>
