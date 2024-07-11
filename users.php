@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./table.css">
+    <link rel="stylesheet" href="static/css/table.css">
     <title>Document</title>
 </head>
 <body>
@@ -38,8 +38,8 @@
                     }
                     ?>
 
-                    <td><a href="users.php?id=<?php echo $p[$i]['id'] ?>"><img src="./trash.svg" alt="" srcset=""></a></td>
-                    <td><a href="upDate.php?id_up=<?php echo $p[$i]['id'] ?>"><img src="./edit.svg" alt="" srcset=""></a></td>
+                    <td><a href="users.php?id=<?php echo $p[$i]['id'] ?>"><img src="./media/icons8-trash.svg" alt="" srcset=""></a></td>
+                    <td><a href="upDate.php?id_up=<?php echo $p[$i]['id'] ?>"><img src="./media/icons8-edit.svg" alt="" srcset=""></a></td>
                     <?php
                     echo '</tr>';
                 }
