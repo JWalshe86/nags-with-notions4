@@ -6,13 +6,31 @@
 	<title>Sign Up</title>
 </head>
 <body>
-    <?php
+      <?php
         require('./connection.php');
         if (isset($_POST['signUP_button'])) {
-	   echo 'It is working!';
-	}
+            $name=$_POST['name'];
+            $lastName=$_POST['lastName'];
+            $email=$_POST['email'];
+            $password=$_POST['password'];
+            $confPassword=$_POST['confiPassword'];
+           if (!empty($_POST['name'])&& !empty($_POST['lastName'])&& !empty($_POST['email'])&&!empty($_POST['password'])) {
+            if ($password== $confPassword) {
+                $p=crud::conect()->prepare('INSERT INTO CRUDTables(name,lastName,email,pass) VALUES(:n,:l,:e,:p)');
+                $p->bindValue(':n', $name);
+                $p->bindValue(':l', $lastName);
+                $p->bindValue(':e', $email);
+                $p->bindValue(':p',$password);
+                $p->execute();
+                echo 'User added successfully!';
+            }else{
+                echo 'Password does not match!';
+            }
+           }
+        }
 
-     ?>
+    ?> 
+
 	<div class="form">
         <div class="title">
             <p>Sign UP form</p>
@@ -20,9 +38,9 @@
 	<form action="" method='post'>
             <input type='text' name="name" placeholder='Name'>
             <input type='text' name="lastName" placeholder='Last Name'>
-            <input type='text' name="email" placeholder='Email'>
-            <input type='text' name="password" placeholder='Password'>
-            <input type='text' name="confiPassword" placeholder='Confirm Password'>
+            <input type='email' name="email" placeholder='Email'>
+            <input type='password' name="password" placeholder='Password'>
+            <input type='password' name="confiPassword" placeholder='Confirm Password'>
             <input type='submit' value="Sign UP" name='signUP_button'>
         </form>
         </div>
