@@ -26,6 +26,15 @@
 	    $p->execute();
 	
 	}
+        public static function userDataPerId($id)
+{
+    $data=array();
+    $p=crud::conect()->prepare('SELECT * FROM CRUDTables WHERE id=:id');
+    $p->bindValue(':id',$id);
+    $p->execute();
+   $data=$p->fetch(PDO::FETCH_ASSOC);
+   return $data;
+}
 
     }
 
