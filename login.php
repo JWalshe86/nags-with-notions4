@@ -28,7 +28,7 @@
 	             $_SESSION['name']= $name;
 	             $_SESSION['password']= $password;
 		     $_SESSION['validate']=true;
-		     echo 'Logged successfully!';		 
+		     header('location:home.php');		 
 		 }else{
 		    echo'Make sure that you are registered!';
 		 }
