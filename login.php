@@ -19,7 +19,7 @@
 		 $_SESSION['validate']=false;
 	         $name=$_POST['name'];
 	         $password=$_POST['password'];
-		 $p=crud::conect()->prepare('SELECT * FROM CRUDTables WHERE name=:n and pass=:p');
+		 $p=crud::conect()->prepare('SELECT * FROM CRUDTable WHERE name=:n and pass=:p');
 		 $p->bindValue(':n', $name);
 		 $p->bindValue(':p', $password);
 		 $p->execute();
