@@ -3,7 +3,7 @@
         public static function conect()
         {
            try {
-		   $con=new PDO('mysql:localhost=host; dbname=CRUDSystem','root','Sunshine7!');
+		   $con=new PDO('mysql:localhost=host; dbname=ol5wws00_crudsystem2','root','Sunshine7!');
 		   return $con;
            } catch (PDOException $error1) {
                 echo 'Something went wrong, with you conection!'.$error1->getMessage();
@@ -14,14 +14,14 @@
 	public static function Selectdata()
 	{
 	    $data=array();
-            $p=crud::conect()->prepare('SELECT * FROM CRUDTable');	
+            $p=crud::conect()->prepare('SELECT * FROM crudtable');	
 	    $p->execute();
 	    $data=$p->fetchAll(PDO::FETCH_ASSOC);
 	    return $data;
 	}
 	public static function delete($id)
 	{
-	    $p=crud::conect()->prepare('DELETE FROM CRUDTable WHERE id=:id');
+	    $p=crud::conect()->prepare('DELETE FROM crudtable WHERE id=:id');
 	    $p->bindValue(':id',$id);
 	    $p->execute();
 	
@@ -29,7 +29,7 @@
         public static function userDataPerId($id)
 {
     $data=array();
-    $p=crud::conect()->prepare('SELECT * FROM CRUDTable WHERE id=:id');
+    $p=crud::conect()->prepare('SELECT * FROM crudtable WHERE id=:id');
     $p->bindValue(':id',$id);
     $p->execute();
    $data=$p->fetch(PDO::FETCH_ASSOC);

@@ -16,7 +16,7 @@
             $confPassword=$_POST['confiPassword'];
            if (!empty($_POST['name'])&& !empty($_POST['lastName'])&& !empty($_POST['email'])&&!empty($_POST['password'])) {
             if ($password== $confPassword) {
-                $p=crud::conect()->prepare('INSERT INTO CRUDTable(name,lastName,email,pass) VALUES(:n,:l,:e,:p)');
+                $p=crud::conect()->prepare('INSERT INTO crudtable(name,lastName,email,pass) VALUES(:n,:l,:e,:p)');
                 $p->bindValue(':n', $name);
                 $p->bindValue(':l', $lastName);
                 $p->bindValue(':e', $email);
