@@ -29,14 +29,14 @@
 <body>
      <a href="index.php">&#8592;</a>
      <?php 
-          $sql = "SELECT * FROM images ORDER BY id DESC";
+          $sql = "SELECT * FROM imagestest ORDER BY id DESC";
           $res = mysqli_query($conn,  $sql);
 
           if (mysqli_num_rows($res) > 0) {
-          	while ($images = mysqli_fetch_assoc($res)) {  ?>
+          	while ($imagestest = mysqli_fetch_assoc($res)) {  ?>
              
              <div class="alb">
-             	<img src="uploads/<?=$images['image_url']?>">
+             	<img src="uploads/<?=$imagestest['image_url']?>">
              </div>
           		
     <?php } }?>
