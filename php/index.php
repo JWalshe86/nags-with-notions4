@@ -16,7 +16,7 @@
 	<?php if (isset($_GET['error'])): ?>
 		<p><?php echo $_GET['error']; ?></p>
 	<?php endif ?>
-     <form action="upload.php"
+     <form action="/php/upload.php"
            method="post"
            enctype="multipart/form-data">
 
