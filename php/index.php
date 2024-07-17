@@ -1,32 +1,58 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Image Upload Using PHP</title>
-	<style>
-		body {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-			min-height: 100vh;
-		}
-	</style>
-</head>
-<body>
-	<?php if (isset($_GET['error'])): ?>
-		<p><?php echo $_GET['error']; ?></p>
-	<?php endif ?>
-     <form action="upload.php"
-           method="post"
-           enctype="multipart/form-data">
+<?php 
 
-           <input type="file" 
-                  name="my_image">
+include "connect.php";
 
-           <input type="submit" 
-                  name="submit"
-                  value="Upload">
-     	
-     </form>
-</body>
-</html>
+if(isset($_POST['ok'])) 
+
+{ 
+
+$folder ="uploads/"; 
+
+$image = $_FILES['image']['name']; 
+
+$path = $folder . $image ; 
+
+$target_file=$folder.basename($_FILES["image"]["name"]);
+
+
+$imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
+
+
+$allowed=array('jpeg','png' ,'jpg'); $filename=$_FILES['image']['name']; 
+
+$ext=pathinfo($filename, PATHINFO_EXTENSION); if(!in_array($ext,$allowed) ) 
+
+{ 
+
+ echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
+
+}
+
+else{ 
+
+move_uploaded_file( $_FILES['image'] ['tmp_name'], $path); 
+
+$sth=$con->prepare("insert into users(image)values(:image) "); 
+
+$sth->bindParam(':image',$image); 
+
+$sth->execute(); 
+
+} 
+
+} 
+
+?> 
+
+<form method="POST" enctype="multipart/form-data"> 
+
+<input type="file" name="image" /> 
+
+<input type="submit" name="ok"/> 
+
+</form>
+
+<a href="select.php">See Image</a>
+
+
+

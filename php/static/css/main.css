@@ -1,0 +1,36 @@
+.jumbotron {
+  color: white;
+  background-image: url("../../media/hero-image-horsebox.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+}
+/* jumbotron background */
+body > div:nth-child(3) > div > div > div.col-6.col-md-8 > div > div{
+background-color: #000000a8;
+border-radius: 2rem;
+}
+
+@media (max-width:666px){
+   .jumbotron{
+     background-position: left;   
+   }
+   .hero-booking{
+     background-position: left;   
+   }
+   .container .row{
+  display: flex; 
+  flex-direction: column-reverse;
+   }
+}
+
+.hero-booking {
+  height: 80vh;
+  color: black;
+  align-content: center;
+}
+
+#hero-container{
+margin-top: 2rem;
+}
