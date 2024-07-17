@@ -21,7 +21,7 @@
             $password=$_POST['password'];
            if (!empty($_POST['name'])&& !empty($_POST['lastName'])&& !empty($_POST['email'])&&!empty($_POST['password'])) {
     
-                $p=crud::conect()->prepare('UPDATE crudtable SET name=:n,lastName=:l,email=:e,pass=:p where id=:id');
+                $p=crud::connect()->prepare('UPDATE crudtable SET name=:n,lastName=:l,email=:e,pass=:p where id=:id');
                 $p->bindValue(':id',$id_up);
                 $p->bindValue(':n', $name);
                 $p->bindValue(':l', $lastName);
