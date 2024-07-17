@@ -7,11 +7,11 @@
             }
             if (count( $p)>0) {
                 for ($i=0; $i < count( $p); $i++) { 
+                   echo '<tr>';
+                   foreach ( $p[$i] as $key => $value) {
                         if ($value == 'test'){
                         echo '<td>'.$value.'</td>';
                           }
-                   echo '<tr>';
-                   foreach ( $p[$i] as $key => $value) {
                     }
                     ?>
 
