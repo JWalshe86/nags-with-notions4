@@ -1,3 +1,30 @@
+        <?php
+        require('./connection.php');
+            $p=crud::Selectdata();
+            if (isset($_GET['id'])) {
+                $id=$_GET['id'];
+                $e=crud::delete($id);
+            }
+            if (count( $p)>0) {
+                for ($i=0; $i < count( $p); $i++) { 
+                        if ($value == 'test'){
+                        echo '<td>'.$value.'</td>';
+                          }
+                   echo '<tr>';
+                   foreach ( $p[$i] as $key => $value) {
+                    }
+                    ?>
+
+                    <?php
+                    echo '</tr>';
+                }
+            }
+
+
+    ?>
+    </table>
+
+
 <table border="2">
 <tr>
 <th>ID</th>
@@ -16,3 +43,4 @@ while($data=$select->fetch()){
 }?>
 </tr></table>
 <a href="index.php">Add new image</a>
+
