@@ -14,6 +14,7 @@
 </head>
 <body>
         <?php
+             session_start();
              require('./connection.php');
 	     if (isset($_POST['login_button']))  {
 		 $_SESSION['validate']=false;
@@ -28,12 +29,20 @@
 	             $_SESSION['name']= $name;
 	             $_SESSION['password']= $password;
 		     $_SESSION['validate']=true;
+		     echo 'testing'; 
+                     $_SESSION['loggedin'] = true;
+                     $_SESSION['username'] = $name; // $username coming from the form, such as $_POST['username']
+                                       // something like this is optional, of course
 		     header('location:home.php');		 
 		 }else{
 		    echo'Make sure that you are registered!';
 		 }
 
 	     }
+
+
+
+
          ?>
 
 	<div class="form">

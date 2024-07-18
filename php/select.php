@@ -1,29 +1,14 @@
-        <?php
-        require('./connection.php');
-            $p=crud::Selectdata();
-            if (isset($_GET['id'])) {
-                $id=$_GET['id'];
-                $e=crud::delete($id);
-            }
-            if (count( $p)>0) {
-                for ($i=0; $i < count( $p); $i++) { 
-                   echo '<tr>';
-                   foreach ( $p[$i] as $key => $value) {
-                        if ($value == 'test'){
-                        echo '<td>'.$value.'</td>';
-                          }
-                    }
-                    ?>
+<?php
+session_start();
 
-                    <?php
-                    echo '</tr>';
-                }
-            }
-
-
+          if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+               echo "Welcome to the member's area, " . htmlspecialchars($_SESSION['name']) . "!";
+          } else {
+              echo "Please log in first to see this page.";
+               }
+      $url = "index.php";
+      echo "<a href='$url'>Add new Image</a>";
     ?>
-    </table>
-
 
 <table border="2">
 <tr>
@@ -42,5 +27,4 @@ while($data=$select->fetch()){
 <?php
 }?>
 </tr></table>
-<a href="index.php">Add new image</a>
 
