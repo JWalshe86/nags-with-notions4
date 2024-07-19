@@ -163,3 +163,9 @@ footer .col-lg-4__social-links:hover, footer footer .col-lg-4 a:hover {
 color:black;
 margin-bottom: 2rem;
 }
+
+#font-holder{
+   display: flex;
+   justify-content: center;
+}
+

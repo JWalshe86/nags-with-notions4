@@ -1,58 +1,23 @@
-<?php 
-
-include "connect.php";
-
-if(isset($_POST['ok'])) 
-
-{ 
-
-$folder ="uploads/"; 
-
-$image = $_FILES['image']['name']; 
-
-$path = $folder . $image ; 
-
-$target_file=$folder.basename($_FILES["image"]["name"]);
-
-
-$imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
-
-
-$allowed=array('jpeg','png' ,'jpg'); $filename=$_FILES['image']['name']; 
-
-$ext=pathinfo($filename, PATHINFO_EXTENSION); if(!in_array($ext,$allowed) ) 
-
-{ 
-
- echo "Sorry, only JPG, JPEG, PNG & GIF  files are allowed.";
-
-}
-
-else{ 
-
-move_uploaded_file( $_FILES['image'] ['tmp_name'], $path); 
-
-$sth=$con->prepare("insert into users(image)values(:image) "); 
-
-$sth->bindParam(':image',$image); 
-
-$sth->execute(); 
-
-} 
-
-} 
-
-?> 
-
-<form method="POST" enctype="multipart/form-data"> 
-
-<input type="file" name="image" /> 
-
-<input type="submit" name="ok"/> 
-
-</form>
-
-<a href="select.php">See Image</a>
-
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Image Gallery</title>
+<link rel="stylesheet" href="./static/css/bootstrap.min.css">
+<link rel="stylesheet" href="./static/css/style.css">
+</head>
+<body>
+	
+</body>
+<div class='container'>
+  <div class="row">
+    <div class="col-lg-12">
+        <h4>Image Gallery</h4>
+      <button class='btn btn-primary'><i class='fas fa-image me-2'></i>Upload New Image</button>
+    </i>
+  </div>
+</div>
+<script src='./static/js/bootstrap.bundle.min.js'></script>
+<script src="jquery-3.7.1.min.js"></script>
+<script src="https://kit.fontawesome.com/d1664b4588.js" crossorigin="anonymous"></script>
+</html>
