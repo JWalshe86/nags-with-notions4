@@ -27,7 +27,7 @@
                         </div>
 			
                         <div class="mb-3">
-                             <input id="upload_image" class='form-control' type="file" name="image">
+                             <input id="image_upload" class='form-control' type="file" name="image"/>
 			</div>
 			
                         <div class="mb-3 d-grid">
@@ -56,6 +56,7 @@
 </div>
 </body>
 <script src='./static/js/bootstrap.bundle.min.js'></script>
-<script src="jquery-3.7.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/d1664b4588.js" crossorigin="anonymous"></script>
+<script src="main.js" crossorigin="anonymous"></script>
 </html>

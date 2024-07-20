@@ -17,7 +17,6 @@
        try{
 	 $this->conn = new PDO($this->dsn, self::DBUSER, self::DBPASS);
 	 $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-	 echo 'Connected Successfully!';
        } catch(PDOException $e){
           die('Error: ' . $e->getMessage());
        }    
