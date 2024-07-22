@@ -62,9 +62,44 @@ $(function() {
 		     $("#preview_image").html("");
 		     $("#upload_btn").val("Upload");
 	             $(".progress").hide();
+	             fetchAllImages();
 		   },
 	   });	
 	});
+
+
+	// Set image in the modal
+	$(document).on('click', '.open_image', function(e){
+          e.preventDefault();
+		let image_id=$(this).attr("id");
+
+		$.ajax({
+                  url: 'action.php',
+	          method: 'post',
+		  data: { image_id: image_id },
+		  dataType: 'json',
+		  success: function(response){
+		    $("#set_image").attr("src", 'uploads/' + response.image_path);
+		    $("#set_iamge").attr("alt", response.alt_text);
+		    $("#image_alt_text").text(response.alt_text);
+	            $(".change_image, .remove_image").attr("data-id", response.id);
+		  }
+		});
+	});
+
+	// Fetch all images ajax request
+	fetchAllImages();
+	function fetchAllImages(){
+          $.ajax({
+            url: 'action.php',
+            method: 'post',
+            data: { fetch_all_images: 1},
+	    success:function(response){
+	      $("#show_all_images").html(response);
+	    }
+
+	  });
+	}
 
     // Method for displaying error message
     function showMessage(type, message){

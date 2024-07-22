@@ -26,7 +26,7 @@ if(isset($_POST['image_upload'])){
    if(!file_exists($image_path)){
      if(in_array($image_ext, $allowed_ext)){
        if($image_size <= 1000000){
-         if(move_uploaded_file($image_tmp, $image_path)){
+         if(compress($image_tmp, $image_path, 70)){
 	   $db->uploadImage($alt_text, $image_unique_name);
 	   echo $util->showMessage('success', 'Image uploaded successfully!'); 
 	  }
@@ -41,4 +41,46 @@ if(isset($_POST['image_upload'])){
     }
    }
 
+   // Handle fetch all images ajax request
+   if(isset($_POST['fetch_all_images'])){
+     $images = $db->fetchAllImages();
+
+     if($images){
+       foreach($images as $row){
+         $output .= '<div class="col-sm-6 col-md-4 col-lg-3">
+		       <a href="#" class="open_image" id="'.$row['id'].'"
+                       data-bs-toggle="modal" data-bs-target="#image_preview_modal">
+		       <img src="uploads/'.$row['image_path'].'" alt="'.$row['alt_text'] .'"
+		       class="img-fluid rounded-0 img-thumbnail">
+			       </a>
+		    </div>';
+       }
+       echo $output;
+     }echo '<div class="col-lg-12">
+           <h1 class="text-center -4">No images found in the database!</h1>
+	     </div>';
+   }
+
+   // Handle set image in modal ajax request
+   if(isset($_POST['image_id'])){
+     $id = $_POST['image_id'];
+     $image = $db->fetchImage($id);
+     echo json_encode($image);
+   }
+
+
+   // Compress image function
+  function compress($source, $destination, $quality){
+    $info = getimagesize($source);
+     
+    if($info['mime'] == 'image/jpeg'){
+      $image = imagecreatefromjpeg($source);
+    }elseif($info['mime'] == 'image/png'){
+      $image = imagecreatefrompng($source);
+    }
+     
+    imagejpeg($image, $destination, $quality);
+    return $destination;
+
+  }
 ?>

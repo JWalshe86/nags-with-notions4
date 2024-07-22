@@ -30,19 +30,50 @@
                         <div class="mb-3">
                              <input id="image_upload" class='form-control' type="file" name="image"/>
 			</div>
+			 
+                        <div class="mb-3" id='preview_image'></div>
 			
                         <div class="mb-3 d-grid">
                              <input value="Upload" class='btn btn-primary' type="submit" id="upload_btn">
 			</div>
                         
-                         <div class="mb-3" id='preview_image'></div>
 
                      </form>
                    </div>
               </div>
            </div>
       </div>
-	
+<!-- Image upload modal end -->
+
+  <!-- Display Full Image Preview Modal Start -->
+
+    <div class="modal fade" id="image_preview_modal">
+       <div class="modal-dialog modal-dialog-centered modal-lg">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <h5 class="modal-title" id="image_alt_text"></h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aira-label="Close"></button>
+              </div>
+                 <div class="modal-body">
+                   <img class="img-fluid" id="set_image">   
+                   
+                   <div class="mt-2 float-end">
+		     <a href="#" class="text-primary me-2 change_image" title="Change Image"
+                     data-bs-toggle="modal" data-bs-target="#edit_image_modal">
+		     <i class="fas fa-edit fa-lg"></i>
+                     </a>  
+                      <a href="#" class="text-danger me-2 remove_image" title="Remove Image">
+                        <i class="fas fa-trash-alt fa-lg"></i>
+                      </a>
+                   </div>
+                </div>
+          </div>
+       </div>
+    </div>
+
+  <!-- Display Full Image Preview Modal End -->
+
+
 <div class='container'>
   <div class="row mt-4">
     <div class="col-lg-12 d-flex justify-content-between align-items-center">
@@ -53,11 +84,13 @@
 </div>
 <hr />
 <div class="row" id="show_all_images">
+   <h1 class="text-center text-secondary p-5">Loading Please Wait...</h1>
+</div>
 
 </div>
-</body>
 <script src='./static/js/bootstrap.bundle.min.js'></script>
 <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/d1664b4588.js" crossorigin="anonymous"></script>
 <script src="main.js" crossorigin="anonymous"></script>
+</body>
 </html>

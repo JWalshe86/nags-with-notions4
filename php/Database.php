@@ -12,7 +12,22 @@
      return true;
    
    }
-  
+   // Fetch all images method
+   public function fetchAllImages(){
+	   $sql = 'SELECT * FROM gallery ORDER BY id DESC';
+	   $stmt = $this->conn->prepare($sql);
+	   $stmt->execute();
+	   $rows = $stmt->fetchAll();
+	   return $rows;
+   }
+     // Fetch single image method
+   public function fetchImage($id){
+     $sql = 'SELECT * FROM gallery WHERE id = :id';
+     $stmt = $this->conn->prepare($sql);
+     $stmt->execute(['id' => $id]);
+     $row = $stmt->fetch();
+     return $row;       
+     } 
   }
 
 ?>
