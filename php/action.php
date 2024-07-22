@@ -77,6 +77,15 @@ if(isset($_POST['image_upload'])){
      echo json_encode($image);
    }
 
+   //Handle update image ajax request
+   if(isset($_POST['update_image_upload'])){
+     print_r($_POST);
+     print_r($_FILES);
+   }
+
+
+
+
 
    // Compress image function
   function compress($source, $destination, $quality){

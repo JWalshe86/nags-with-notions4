@@ -109,6 +109,76 @@ $(function() {
 	});
 	});
 
+
+// Validate image in client side
+    $("#edit_image_upload").change(function (e) {
+	    console.log('test');
+       let file_ext = $(this).val().split(".").pop().toLowerCase();
+       let allowed_ext = ["jpg", "jpeg", "png"];
+       let file_size = this.files[0].size;
+
+       if(allowed_ext.includes(file_ext)){
+          if(file_size <= 1000000){
+            let url = window.URL.createObjectURL(this.files[0]);
+            $("#edit_preview_image").html(`<img src="${url}" class="img-fluid img-thumbnail">`);
+            $("#change_btn").prop("disabled", false);
+             $("#edit_message_alert").html("");
+	  }else{
+             $("#edit_message_alert").html(showMessage('danger', 'Image size should be less or equal to 1MB!'));
+		  //disables the button
+             $("#edit_preview_image").html("");
+             $("#change_btn").prop("disabled", true);
+	  }
+
+       }else{
+             $("#edit_message_alert").html(showMessage('danger', 'Image type not supported! Only JPG, JPEG & PNG are allowed!'));
+		  //disables the button
+             $("#edit_preview_image").html("");
+             $("#change_btn").prop("disabled", true);
+       }
+    });
+
+     // Upload image ajax request  // Prevents the form from submitting
+ 
+	$("#image_edit_form").submit(function(e){
+           e.preventDefault();
+	   const formData = new FormData(this);
+	   formData.append("update_image_upload", 1);
+	   $("#upload_btn").val("Please Wait...");
+		
+	   $.ajax({
+                   xhr: function(){
+                     let xhr = new window.XMLHttpRequest();
+		     xhr.upload.addEventListener('progress', function(evt){
+                       if(evt.lengthComputable){
+                         $(".progress").show();
+			 let percent = Math.round((evt.loaded / evt.total)* 100);
+			 $(".progress-bar").width(percent+"%");
+			 $(".progress-bar").text(percent+"%");
+		       }
+		     },
+		     false
+		   );
+		     return xhr;		    
+		   },
+		   url: 'action.php',
+		   method: 'post',
+		   data: formData,
+		   cache: false,
+		   contentType: false,
+		   processData: false,
+		   success:function(response){
+			   console.log(response);
+                     $("#edit_message_alert").html(response); 
+		     $("#image_edit_form")[0].reset();
+		     $("#edit_preview_image").html("");
+		     $("#change_btn").val("Upload");
+	             $(".progress").hide();
+	             fetchAllImages();
+		   },
+	   });	
+	});
+
 	// Fetch all images ajax request
 	fetchAllImages();
 	function fetchAllImages(){
