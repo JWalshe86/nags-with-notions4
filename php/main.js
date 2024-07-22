@@ -87,6 +87,28 @@ $(function() {
 		});
 	});
 
+	// Edit image ajax request
+	let image_modal = new bootstrap.Modal(document.getElementById('image_preview_modal'));
+	$(".change_image").click(function (e) {
+           e.preventDefault();
+	   let id = $(this).attr('data-id');
+	   image_modal.hide();
+
+	$.ajax({
+          url: "action.php",
+	  method: "post",
+	  data: { id: id, edit_image: 1 },
+	  dataType: "json",
+	  success: function(response){
+            $("#edit_image_id").val(response.id);
+            $("#edit_alt_text").val(response.alt_text);
+	    $("#old_image").val(response.image_path);
+	    $("#edit_preview_image").html(`<img src="uploads/${response.image_path}"
+	    class="img-fluid img-thumbnail">`);
+	  },
+	});
+	});
+
 	// Fetch all images ajax request
 	fetchAllImages();
 	function fetchAllImages(){

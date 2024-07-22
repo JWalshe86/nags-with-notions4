@@ -8,6 +8,8 @@
 </head>
 <body class='bg-light'>
 
+<!-- Image upload modal start -->
+
       <div class="modal fade" id="upload_image_modal">
            <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
@@ -44,6 +46,50 @@
            </div>
       </div>
 <!-- Image upload modal end -->
+
+<!-- Change image modal start -->
+
+
+      <div class="modal fade" id="edit_image_modal">
+           <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                  <div class="modal-header">
+                       <h5 class='modal-title'>Change Image</h5>
+                        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='close'></button>
+                   </div>
+                   <div class="modal-body p-4">
+                        <div id="edit_message_alert"></div>
+                        <div class="progress mb-3" style='height:25px; display:none;'>
+			   <div class="progress-bar progress-bar-striped progress-bar-animated" role='progressbar' 
+                           aria-valuemin='0' aria-valuemax='100'>
+                           </div>
+                        </div>
+		     <form action="#" method='POST' enctype='multipart/form-data' id='image_edit_form'>
+                        
+                        <input type="hidden" name="edit_image_id" id="edit_image_id">                        
+                        <input type="hidden" name="old_image" id="old_image">                        
+ 
+                        <div class="mb-3">
+                            <input id="edit_alt_text" class='form-control' type="text" name="altText" placeholder='Image Alternate Text' required />
+                        </div>
+			
+                        <div class="mb-3">
+                             <input id="edit_image_upload" class='form-control' type="file" name="image"/>
+			</div>
+			 
+                        <div class="mb-3" id='edit_preview_image'></div>
+			
+                        <div class="mb-3 d-grid">
+                             <input value="Update" class='btn btn-success' type="submit" id="change_btn"/>
+			</div>
+                        
+
+                     </form>
+                   </div>
+              </div>
+           </div>
+      </div>
+<!-- Change image modal end -->
 
   <!-- Display Full Image Preview Modal Start -->
 

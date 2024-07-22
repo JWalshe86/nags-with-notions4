@@ -69,6 +69,15 @@ if(isset($_POST['image_upload'])){
    }
 
 
+   // Handle edit image ajax request
+   if(isset($_POST['edit_image'])){
+     $id = $_POST['id'];
+     $image = $db->fetchImage($id);
+     // converts array into json format & sends to client
+     echo json_encode($image);
+   }
+
+
    // Compress image function
   function compress($source, $destination, $quality){
     $info = getimagesize($source);
