@@ -16,6 +16,7 @@
                         <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='close'></button>
                    </div>
                    <div class="modal-body p-4">
+                        <div id="message_alert"></div>
                         <div class="progress mb-3" style='height:25px; display:none;'>
 			   <div class="progress-bar progress-bar-striped progress-bar-animated" role='progressbar' 
                            aria-valuemin='0' aria-valuemax='100'>
