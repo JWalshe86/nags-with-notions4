@@ -40,6 +40,14 @@
 	]);
 	return true;
       }
+  // Delete image method
+  public function removeImage($id){
+    $sql = 'DELETE FROM gallery WHERE id = :id';
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute(['id' => $id]);
+    return true;
   }
+  }
+
 
 ?>

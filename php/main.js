@@ -177,6 +177,26 @@ $(function() {
 	   });	
 	});
 
+  // Remove image ajax request
+	
+	$(".remove_image").click(function (e){
+          e.preventDefault();
+	  let id = $(this).attr('data-id');
+          let img_url = $("#set_image").attr("src");
+	  
+          $.ajax({
+            url: 'action.php',
+            method: 'post',
+            data: { id:id, img_url: img_url, remove_image: 1 },
+            success:function(response){
+            image_modal.hide();
+            fetchAllImages();
+            $("#delete_image_alert").html(response);
+           },
+          });
+	}); 
+
+
 	// Fetch all images ajax request
 	fetchAllImages();
 	function fetchAllImages(){

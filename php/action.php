@@ -110,8 +110,19 @@ if(isset($_POST['image_upload'])){
 	   }
    }
 
+// Handle remove image ajax request
+   if(isset($_POST['remove_image'])){
+     $id = $_POST['id'];
+     $img_url = $_POST['img_url'];
 
+     if($db->removeImage($id)){
+       unlink($img_url);
+       echo $util->showMessage('success','Image deleted successfully!');
+     }else{
+        echo $util->showMessage('danger', 'Something went wrong!');
+     }
 
+   } 
 
 
    // Compress image function
