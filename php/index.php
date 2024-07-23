@@ -129,7 +129,7 @@
   </div>
 </div>
 <hr />
-<div class="row" id="show_all_images">
+<div class="row g-4" id="show_all_images">
    <h1 class="text-center text-secondary p-5">Loading Please Wait...</h1>
 </div>
 

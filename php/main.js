@@ -112,7 +112,6 @@ $(function() {
 
 // Validate image in client side
     $("#edit_image_upload").change(function (e) {
-	    console.log('test');
        let file_ext = $(this).val().split(".").pop().toLowerCase();
        let allowed_ext = ["jpg", "jpeg", "png"];
        let file_size = this.files[0].size;
@@ -168,7 +167,6 @@ $(function() {
 		   contentType: false,
 		   processData: false,
 		   success:function(response){
-			   console.log(response);
                      $("#edit_message_alert").html(response); 
 		     $("#image_edit_form")[0].reset();
 		     $("#edit_preview_image").html("");

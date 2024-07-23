@@ -28,6 +28,18 @@
      $row = $stmt->fetch();
      return $row;       
      } 
+
+    // Update image method
+      public function updateImage($id, $at, $ip){
+        $sql = 'UPDATE gallery SET alt_text = :alt_text, image_path = :image_path WHERE id = :id';
+	$stmt = $this->conn->prepare($sql);
+	$stmt->execute([
+	  'alt_text'=>$at,
+	  'image_path'=>$ip,
+	  'id' => $id
+	]);
+	return true;
+      }
   }
 
 ?>

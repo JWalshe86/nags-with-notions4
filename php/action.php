@@ -79,8 +79,35 @@ if(isset($_POST['image_upload'])){
 
    //Handle update image ajax request
    if(isset($_POST['update_image_upload'])){
-     print_r($_POST);
-     print_r($_FILES);
+	   $image_id = $_POST['edit_image_id'];
+	   $alt_text = $util->testInput($_POST['altText']);
+	   $old_image = $_POST['old_image'];
+
+	   $image_name = $_FILES['image']['name'];
+	   $image_tmp = $_FILES['image']['tmp_name'];
+
+	   $image_ext = explode('.',$image_name);
+	   $image_ext = strtolower(end($image_ext));
+
+	   $target_dir = 'uploads/';
+	   $image_unique_name = uniqid().'.'.$image_ext;
+	   $image_path = $target_dir.$image_unique_name;
+
+	   if(isset($image_name) && $image_name != ''){
+	     $new_image_path = $image_unique_name;
+             compress($image_tmp, $image_path, 70);
+	     if($old_image != null){
+	       unlink($target_dir.$old_image);
+	     }
+	   } else{
+	      $new_image_path = $old_image;
+	   }
+
+	   if($db->updateImage($image_id, $alt_text, $new_image_path)){
+	     echo $util->showMessage('success', 'Image updated successfully!');
+	   } else {
+	     echo $util->showMessage('danger', 'Something went wrong!');
+	   }
    }
 
 
