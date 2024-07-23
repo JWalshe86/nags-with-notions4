@@ -56,9 +56,11 @@ if(isset($_POST['image_upload'])){
 		    </div>';
        }
        echo $output;
-     }echo '<div class="col-lg-12">
+     }else {
+     echo '<div class="col-lg-12">
            <h1 class="text-center -4">No images found in the database!</h1>
 	     </div>';
+   }
    }
 
    // Handle set image in modal ajax request
