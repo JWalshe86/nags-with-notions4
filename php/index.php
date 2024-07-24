@@ -6,7 +6,13 @@
 <link rel="stylesheet" href="./static/css/bootstrap.min.css">
 <link rel="stylesheet" href="./static/css/style.css">
 </head>
+
+
+
 <body class='bg-light'>
+
+<!-- navbar start -->
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="/nags-with-notions4">Nags With Notions</a>
@@ -34,6 +40,23 @@
   </div>
 </nav>
 
+<!-- navbar end -->
+
+
+<?php
+session_start();
+
+          if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+               echo "Welcome to the member's area, " . htmlspecialchars($_SESSION['name']) . "!";
+          } 
+           else {
+              echo "Please log in first to see this page.";
+               }
+      $url = "index.php";
+      echo   "<button class='btn btn-primary rounded-0' data-bs-toggle='modal' data-bs-target='#upload_image_modal'>
+       <i class='fas fa-image me-2'></i>Upload New Image</button>";
+      echo "<a href='$url'>Add new Image</a>";
+?>
 <!-- Image upload modal start -->
 
       <div class="modal fade" id="upload_image_modal">
